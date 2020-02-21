@@ -2,13 +2,14 @@
 
 - set up single-spa to connect more framework
 - add event listener in html
-  no parameter
+
+  Ex. no parameter
 
   ```
       window.addEventListener("name Evnet", do somethings.... );
   ```
 
-  with parameter
+  Ex. with parameter
 
   ```
       window.addEventListener("name Evnet", ( parameter ) =>
