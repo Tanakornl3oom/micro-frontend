@@ -4,7 +4,6 @@ import Button from "./button";
 const App = () => {
   const click = path => {
     let event = new CustomEvent("href__", { detail: { path } });
-    console.log(path);
     window.dispatchEvent(event);
   };
 
