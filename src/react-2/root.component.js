@@ -1,16 +1,31 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useRoutes } from "hookrouter";
+import Routes from "./router";
+import Manage from "./component/manage";
+import { throws } from "assert";
 
 const App = () => {
-  const click = () => {
-    let event = new Event("a__click");
-    window.dispatchEvent(event);
+  const changePage = path => {
+    switch (path) {
+      case "1":
+        return (window.location.href = "/1");
+      case "2":
+        return (window.location.href = "/2");
+      case "3":
+        return (window.location.href = "/3");
+      default:
+        return;
+    }
   };
 
-  return (
-    <button onClick={click}>
-      <h1>Hello from React-2</h1>
-    </button>
-  );
+  useEffect(() => {
+    window.addEventListener("href__", ({ detail }) => {
+      changePage(detail.path);
+    });
+  }, []);
+
+  const routeResult = useRoutes(Routes);
+  return routeResult;
 };
 
 export default App;

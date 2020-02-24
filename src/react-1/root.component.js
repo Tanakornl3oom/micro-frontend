@@ -1,16 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import Button from "./button";
 
 const App = () => {
-  const [useA, setA] = useState("Default");
+  const click = path => {
+    let event = new CustomEvent("href__", { detail: { path } });
+    console.log(path);
+    window.dispatchEvent(event);
+  };
 
-  useEffect(() => {
-    window.addEventListener("a__click", () => setA("Clicked"));
-  }, []);
+  const buttons = ["1", "2", "3"];
 
   return (
-    <button onClick={() => {}}>
-      <h1>{useA}</h1>
-    </button>
+    <React.Fragment>
+      {buttons.map(button => {
+        return (
+          <Button
+            key={button}
+            click={() => {
+              click(button);
+            }}
+            text={button}
+          />
+        );
+      })}
+    </React.Fragment>
   );
 };
 
