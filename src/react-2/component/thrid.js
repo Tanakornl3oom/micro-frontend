@@ -1,7 +1,7 @@
 import React from "react";
 
-const Thrid = () => {
-  return <h1>Thrid</h1>;
+const Third = () => {
+  return <h1>Third</h1>;
 };
 
-export default Thrid;
+export default Third;
